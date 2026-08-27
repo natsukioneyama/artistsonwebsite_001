@@ -381,7 +381,7 @@ body.password-locked {
   width: 100%;
   aspect-ratio: 16 / 7;
   overflow: hidden;
-  background: var(--panel-bg);
+  background: #000;
 }
 
 .css-slider-track {
@@ -389,8 +389,10 @@ body.password-locked {
   height: 100%;
   width: max-content;
   gap: 16px;
+  background: #000;
   animation: css-slider-scroll 26s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .css-slider-group {
@@ -400,6 +402,7 @@ body.password-locked {
 .css-slider-slide {
   flex: none;
   height: 100%;
+  background: #000;
 }
 
 .css-slider-slide img,
@@ -407,12 +410,13 @@ body.password-locked {
   display: block;
   width: auto;
   height: 100%;
+  background: #000;
   object-fit: contain;
 }
 
 @keyframes css-slider-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 
