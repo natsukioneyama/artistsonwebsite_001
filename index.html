@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<div id="passwordScreen" class="password-screen">
+  <div class="password-box">
+    <p class="password-eyebrow">Private Access</p>
+    <h1 class="password-brand">Artists on Website</h1>
+    <p class="password-text">This page is shared privately with selected artists.</p>
+
+    <label class="password-field-label" for="passwordInput">Enter password</label>
+    <input type="password" id="passwordInput" class="password-input" autocomplete="off">
+    <button type="button" id="passwordButton" class="password-button">Enter</button>
+
+    <p id="passwordError" class="password-error"></p>
+  </div>
+</div>
+
 <header class="site-header" id="top">
   <div class="brand">
     <span class="brand-mark">AOW</span>
@@ -76,6 +90,19 @@
         <div class="css-slider-slide"><img src="img/02.webp" alt="AOW portfolio example"></div>
         <div class="css-slider-slide"><img src="img/03.webp" alt="AOW portfolio example"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Why ===== -->
+  <section id="why" class="why-section">
+    <h2 class="why-heading">Your portfolio is about where you want to go next.</h2>
+
+    <div class="why-content">
+      <p class="why-body">Instagram shows what you are doing today. Your portfolio shows where you want to go next.</p>
+
+      <p class="why-body">Instagram is a feed. A portfolio is a deliberate selection of how you want your work to be understood.</p>
+
+      <p class="why-body">It gives clients, agencies, and collaborators one clear place to understand who you are.</p>
     </div>
   </section>
 
@@ -300,6 +327,7 @@
 
 </main>
 
+<script src="password.js" defer></script>
 <script src="nav.js" defer></script>
 
 </body>

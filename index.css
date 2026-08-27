@@ -98,7 +98,101 @@ video {
 
 
 /* ==========================================================================
-   3. HEADER / NAVIGATION
+   3. PASSWORD SCREEN
+   ========================================================================== */
+
+.password-screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  min-height: 100dvh;
+  z-index: 1000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.password-screen[hidden] {
+  display: none;
+}
+
+.password-box {
+  width: 100%;
+  max-width: 320px;
+}
+
+.password-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  margin-bottom: 8px;
+}
+
+.password-brand {
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.password-text {
+  font-size: 13px;
+  color: var(--body-text);
+  margin-bottom: 24px;
+}
+
+.password-field-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  margin-bottom: 6px;
+}
+
+.password-input {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: var(--font-base);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+
+.password-button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.password-error {
+  font-size: 12px;
+  color: var(--accent);
+  margin-top: 12px;
+  min-height: 16px;
+}
+
+body.password-locked {
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   4. HEADER / NAVIGATION
    ========================================================================== */
 
 .site-header {
@@ -201,7 +295,7 @@ video {
 
 
 /* ==========================================================================
-   4. LIMITED & FRIENDS-ONLY SERVICE
+   5. LIMITED & FRIENDS-ONLY SERVICE
    ========================================================================== */
 
 .limited-section {
@@ -283,7 +377,37 @@ video {
 
 
 /* ==========================================================================
-   5. SELECTED WEBSITES
+   6. WHY
+   ========================================================================== */
+
+.why-section {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.why-heading {
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.why-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.why-body {
+  font-size: 13px;
+  max-width: 760px;
+}
+
+
+/* ==========================================================================
+   7. SELECTED WEBSITES
    ========================================================================== */
 
 .selected-section {
@@ -317,7 +441,7 @@ video {
 
 
 /* ==========================================================================
-   6. PRICING
+   8. PRICING
    ========================================================================== */
 
 .pricing-section {
@@ -359,7 +483,7 @@ video {
 
 
 /* ==========================================================================
-   7. OWNERSHIP
+   9. OWNERSHIP
    ========================================================================== */
 
 .ownership-section {
@@ -417,7 +541,7 @@ video {
 
 
 /* ==========================================================================
-   8. TERMS
+   10. TERMS
    ========================================================================== */
 
 .terms-section {
@@ -457,7 +581,7 @@ video {
 
 
 /* ==========================================================================
-   9. FAQ
+   11. FAQ
    ========================================================================== */
 
 .faq-section {
@@ -534,7 +658,7 @@ video {
 
 
 /* ==========================================================================
-   10. CONTACT
+   12. CONTACT
    ========================================================================== */
 
 .contact-section {
@@ -576,7 +700,7 @@ video {
 
 
 /* ==========================================================================
-   11. RESPONSIVE (portrait: phone & tablet)
+   13. RESPONSIVE (portrait: phone & tablet)
    ========================================================================== */
 
 @media (orientation: portrait) {
@@ -615,6 +739,11 @@ video {
     padding: 18px 18px;
   }
 
+  .why-section {
+    grid-template-columns: 1fr;
+    padding: 18px 18px;
+  }
+
   .limited-heading,
   .selected-heading,
   .pricing-heading,
@@ -622,6 +751,11 @@ video {
   .terms-heading,
   .faq-heading,
   .contact-heading {
+    font-size: 21px;
+    text-align: left;
+  }
+
+  .why-heading {
     font-size: 21px;
     text-align: left;
   }
