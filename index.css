@@ -161,6 +161,44 @@ video {
   border-bottom: none;
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav {
+  display: none;
+}
+
 
 /* ==========================================================================
    4. LIMITED & FRIENDS-ONLY SERVICE
@@ -173,7 +211,7 @@ video {
 }
 
 .limited-heading {
-  text-align: center;
+  text-align: left;
 }
 
 .limited-text {
@@ -183,24 +221,22 @@ video {
 }
 
 .limited-intro {
-  text-align: right;
+  text-align: left;
 }
 
 .limited-list {
   list-style: none;
-  align-self: flex-end;
+  align-self: flex-start;
   text-align: left;
 }
 
 .limited-list li {
-  position: relative;
   padding-left: 14px;
   margin-bottom: 4px;
 }
 
 .limited-list li::before {
   content: "\2022";
-  position: absolute;
   left: 0;
 }
 
@@ -460,12 +496,17 @@ video {
 }
 
 .faq-extra {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-extra-inner {
   overflow: hidden;
 }
 
 .faq-expand-input:checked ~ .faq-list .faq-extra {
-  max-height: 600px;
+  grid-template-rows: 1fr;
 }
 
 .faq-toggle {
@@ -575,7 +616,7 @@ video {
   .faq-heading,
   .contact-heading {
     font-size: 21px;
-    text-align: right;
+    text-align: left;
   }
 
   .limited-intro {
@@ -612,5 +653,37 @@ video {
 
   body {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 699px) {
+
+  .site-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .mobile-nav:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--nav-text);
+  }
+
+  .mobile-nav a:not(:first-child) {
+    border-top: 1px solid var(--line);
   }
 }

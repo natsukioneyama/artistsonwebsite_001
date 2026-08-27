@@ -22,7 +22,22 @@
     <a href="#terms">Terms</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
 </header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+  <a href="#selected-websites">Selcted Websites</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#ownership">Ownership</a>
+  <a href="#terms">Terms</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</nav>
 
 <main>
 
@@ -176,14 +191,61 @@
         </div>
 
         <div class="faq-extra">
-          <div class="faq-item">
-            <h3 class="faq-question">Q. Do you provide a receipt or invoice?</h3>
-            <p class="faq-answer">A. Yes. All payments are declared in accordance with French law, and a receipt or invoice can be issued upon request.</p>
-          </div>
+          <div class="faq-extra-inner">
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Do you provide a receipt or invoice?</h3>
+              <p class="faq-answer">A. Yes. All payments are declared in accordance with French law, and a receipt or invoice can be issued upon request.</p>
+            </div>
 
-          <div class="faq-item">
-            <h3 class="faq-question">Q. Who owns the website?</h3>
-            <p class="faq-answer">You do. Both the GitHub account and the code are under your name.</p>
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Who owns the website?</h3>
+              <p class="faq-answer">You do. Both the GitHub account and the code are under your name.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Is the 1 year renewal mandatory? And when is it?</h3>
+              <p class="faq-answer">No, renewal is optional. Even without renewal, your website remains online. I will notify you one month before your support period ends.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. What is included in the free updates?</h3>
+              <p class="faq-answer">Up to two small updates per week (image additions, replacements, caption fixes, etc.).</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Is it possible that Natsuki stops offering this service in the future?</h3>
+              <p class="faq-answer">Yes, it is possible. My main profession is makeup artistry, and there may be a time when I become too busy to continue. If I decide to discontinue the service, I will notify you at least <strong>6 months in advance</strong>.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. What if I&rsquo;ve never used GitHub?</h3>
+              <p class="faq-answer">No problem. We will go through the necessary steps together when creating your account. I will handle all the complex parts and publishing setup. You do not need to touch any code.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. What if I want to change the structure after the site is finished?</h3>
+              <p class="faq-answer">Small adjustments are possible. Larger structural changes (new categories, major layout redesigns) will be discussed as new work.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Can you create a second site for me?</h3>
+              <p class="faq-answer">It may be possible depending on my schedule. Please contact me first.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Are the usage rights for my photos okay?</h3>
+              <p class="faq-answer">I assume the client has permission to use the photos. Responsibility for copyright lies with the client (you), not the designer.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Is the site optimized for SEO?</h3>
+              <p class="faq-answer">Advanced SEO is not necessary for artist portfolios, but the essential metadata and structure are properly set up. This website is not meant to &ldquo;rank widely,&rdquo; but to <strong>reach the specific people you want to show your work to.</strong></p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Q. Can the service change in the future?</h3>
+              <p class="faq-answer">Yes. To maintain and improve the quality of support, the service contents, policies, and applicable fees may be reviewed and adjusted. In such cases, any changes will be explained in advance to clients who are currently using the service, and will only be applied after receiving their understanding and approval.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -224,6 +286,8 @@
   </section>
 
 </main>
+
+<script src="nav.js" defer></script>
 
 </body>
 </html>
