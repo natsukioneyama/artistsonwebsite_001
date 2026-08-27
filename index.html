@@ -9,28 +9,23 @@
 <body>
 
 <div id="passwordScreen" class="password-screen">
-  <div class="password-inner">
-    <p class="password-eyebrow">Private Access</p>
+  <div class="password-grid">
+    <h1 class="password-heading">Your portfolio is about where you want to go next.</h1>
 
-    <div class="password-grid">
-      <h1 class="password-heading">Your portfolio is about where you want to go next.</h1>
-
-      <div class="password-content">
-        <p class="password-body">Instagram shows what you are doing today. Your portfolio shows where you want to go next.</p>
-
-        <p class="password-body">Instagram is a feed. A portfolio is a deliberate selection of how you want your work to be understood.</p>
-
-        <p class="password-body">It gives clients, agencies, and collaborators one clear place to understand who you are.</p>
-
-        <p class="password-text">This page is shared privately with selected artists.</p>
-
-        <label class="password-field-label" for="passwordInput">Enter password</label>
-        <input type="password" id="passwordInput" class="password-input" autocomplete="off">
-        <button type="button" id="passwordButton" class="password-button">Enter</button>
-
-        <p id="passwordError" class="password-error"></p>
-      </div>
+    <div class="password-body-group">
+      <p class="password-body">Instagram shows what you are doing today. Your portfolio shows where you want to go next.</p>
+      <p class="password-body">Instagram is a feed. A portfolio is a deliberate selection of how you want your work to be understood.</p>
+      <p class="password-body">It gives clients, agencies, and collaborators one clear place to understand who you are.</p>
     </div>
+
+    <p class="password-brand">Artists on Website</p>
+
+    <form class="password-form" id="passwordForm">
+      <p class="password-eyebrow">Private Access</p>
+      <label class="password-field-label" for="passwordInput">Enter password</label>
+      <input type="password" id="passwordInput" class="password-input" autocomplete="off" enterkeyhint="go">
+      <p id="passwordError" class="password-error"></p>
+    </form>
   </div>
 </div>
 

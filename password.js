@@ -3,11 +3,11 @@
   var accessStorageKey = "aowAccess_v1";
 
   var screen = document.getElementById('passwordScreen');
+  var form = document.getElementById('passwordForm');
   var input = document.getElementById('passwordInput');
-  var button = document.getElementById('passwordButton');
   var error = document.getElementById('passwordError');
 
-  if (!screen || !input || !button || !error) return;
+  if (!screen || !form || !input || !error) return;
 
   function unlock() {
     screen.hidden = true;
@@ -31,11 +31,8 @@
     document.body.classList.add('password-locked');
   }
 
-  button.addEventListener('click', checkPassword);
-
-  input.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-      checkPassword();
-    }
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    checkPassword();
   });
 })();

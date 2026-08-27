@@ -107,107 +107,117 @@ video {
   width: 100%;
   min-height: 100dvh;
   z-index: 1000;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #4c1f8d;
   overflow-y: auto;
-  padding: 40px;
 }
 
 .password-screen[hidden] {
   display: none;
 }
 
-.password-inner {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.password-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--nav-text);
-  margin-bottom: 20px;
-}
-
 .password-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
+  min-height: 100dvh;
+  grid-template-columns: 1fr minmax(280px, 380px);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "heading heading"
+    "body    ."
+    "brand   password";
+  gap: 24px;
+  padding: 28px 32px;
 }
 
 .password-heading {
-  font-size: clamp(28px, 4vw + 12px, 58px);
-  line-height: 1.08;
-  letter-spacing: 0.01em;
+  grid-area: heading;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-base);
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.98;
+  font-size: clamp(48px, 7.5vw, 128px);
 }
 
-.password-content {
+.password-body-group {
+  grid-area: body;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 8px;
-}
-
-.password-body {
-  font-size: 14px;
-  color: var(--body-text);
+  gap: 10px;
   max-width: 480px;
 }
 
-.password-text {
+.password-body {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.password-brand {
+  grid-area: brand;
+  align-self: end;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: clamp(32px, 5vw, 72px);
+}
+
+.password-form {
+  grid-area: password;
+  align-self: end;
+  justify-self: end;
+  width: 100%;
+  max-width: 340px;
+  text-align: right;
+}
+
+.password-eyebrow {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
   font-size: 13px;
-  color: var(--body-text);
-  margin-top: 8px;
+  letter-spacing: 0.04em;
 }
 
 .password-field-label {
   display: block;
-  font-size: 11px;
-  letter-spacing: 0.05em;
+  margin: 2px 0 10px;
+  color: #fff;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--nav-text);
-  margin-top: 12px;
-  margin-bottom: 6px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
 }
 
 .password-input {
   display: block;
   width: 100%;
-  max-width: 320px;
-  padding: 10px 12px;
-  font-size: 14px;
+  height: 46px;
+  padding: 0 14px;
+  font-size: 16px;
   font-family: var(--font-base);
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--line);
-  margin-bottom: 12px;
-}
-
-.password-button {
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  padding: 10px 12px;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--line);
-  cursor: pointer;
+  color: #1a1a1a;
+  background: #d5d5d5;
+  border: none;
+  border-radius: 0;
 }
 
 .password-error {
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 700;
   font-size: 12px;
-  color: var(--accent);
-  margin-top: 12px;
-  min-height: 16px;
+}
+
+.password-error:empty {
+  display: none;
+  margin-top: 0;
 }
 
 body.password-locked {
@@ -699,18 +709,44 @@ body.password-locked {
 
 @media (orientation: portrait) {
 
-  .password-screen {
+  .password-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      "heading"
+      "body"
+      "."
+      "brand"
+      "password";
+    gap: 20px;
     padding: 24px 20px;
   }
 
-  .password-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .password-heading {
+    font-size: clamp(32px, 7vw + 0.9dvh, 66px);
+    line-height: 1.05;
   }
 
-  .password-input,
-  .password-button {
+  .password-body-group {
     max-width: none;
+  }
+
+  .password-body {
+    font-size: clamp(15px, 0.4vw + 1.6dvh, 20px);
+  }
+
+  .password-brand {
+    font-size: clamp(28px, 4.3vw + 1.5dvh, 50px);
+  }
+
+  .password-form {
+    max-width: none;
+    text-align: left;
+  }
+
+  .password-eyebrow,
+  .password-field-label {
+    font-size: clamp(13px, 1.3vw + 1.1dvh, 18px);
   }
 
   .brand {
@@ -797,18 +833,44 @@ body.password-locked {
 
 @media (max-width: 699px) {
 
-  .password-screen {
+  .password-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      "heading"
+      "body"
+      "."
+      "brand"
+      "password";
+    gap: 16px;
     padding: 20px;
   }
 
-  .password-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .password-heading {
+    font-size: clamp(32px, 7vw + 0.9dvh, 66px);
+    line-height: 1.05;
   }
 
-  .password-input,
-  .password-button {
+  .password-body-group {
     max-width: none;
+  }
+
+  .password-body {
+    font-size: clamp(15px, 0.4vw + 1.6dvh, 20px);
+  }
+
+  .password-brand {
+    font-size: clamp(28px, 4.3vw + 1.5dvh, 50px);
+  }
+
+  .password-eyebrow,
+  .password-field-label {
+    font-size: clamp(13px, 1.3vw + 1.1dvh, 18px);
+  }
+
+  .password-form {
+    max-width: none;
+    text-align: left;
   }
 
   .site-header {
