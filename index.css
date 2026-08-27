@@ -1,7 +1,24 @@
+/* ==========================================================================
+   1. RESET & BASE
+   ========================================================================== */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:root {
+  --line: #c9cacd;
+  --ink: #54565f;
+  --ink-strong: #4a4c54;
+  --body-text: #58585f;
+  --nav-text: #6f7079;
+  --panel-bg: #54565c;
+  --panel-text: #f4f4f5;
+  --accent: #f2a988;
+  --bg: #ffffff;
+  --font-base: Arial, Helvetica, "Segoe UI", sans-serif;
 }
 
 html {
@@ -10,9 +27,28 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f1ea;
-  color: #111;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--body-text);
+  font-family: var(--font-base);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -20,429 +56,561 @@ a {
   text-decoration: none;
 }
 
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+video {
+  display: block;
   width: 100%;
-  z-index: 20;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   2. COMMON LAYOUT
+   ========================================================================== */
+
+.limited-section,
+.selected-section,
+.pricing-section,
+.ownership-section,
+.terms-section,
+.faq-section,
+.contact-section {
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.limited-heading,
+.selected-heading,
+.pricing-heading,
+.ownership-heading,
+.terms-heading,
+.faq-heading,
+.contact-heading {
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   3. HEADER / NAVIGATION
+   ========================================================================== */
+
+.site-header {
   display: flex;
-  justify-content: space-between;
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
   align-items: center;
-  padding: 18px 24px;
-  mix-blend-mode: difference;
-  color: #fff;
-}
-
-.logo {
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-}
-
-.site-nav {
-  display: flex;
-  gap: 18px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hero {
-  min-height: 100vh;
-  padding: 120px max(16px, calc(50% - 550px)) 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #111;
-  color: #f4f1ea;
-}
-
-.eyebrow {
-  margin: 0 0 24px;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  max-width: 1100px;
-  margin: 0;
-  font-size: clamp(56px, 11vw, 150px);
-  line-height: 0.9;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
-}
-
-.hero-text {
-  max-width: 560px;
-  margin: 32px 0 0;
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: 1.3;
-}
-
-.button {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 36px;
-  padding: 14px 22px;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.section {
-  padding: 90px 24px;
-}
-
-.dark {
-  background: #111;
-  color: #f4f1ea;
-}
-
-.light {
-  background: #f4f1ea;
-  color: #111;
-}
-
-.section .number {
-  max-width: 760px;
-  margin: 0 auto 24px;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.section h2 {
-  max-width: 760px;
-  margin: 0 auto 40px;
-  font-size: clamp(38px, 7vw, 92px);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-  text-transform: uppercase;
-}
-#service h2 {
-  font-size: clamp(38px, 5vw, 68px);
+  gap: 12px;
+  padding: 14px 28px;
+  border-right: 1px solid var(--line);
   white-space: nowrap;
 }
 
-.section p {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto 18px;
-  font-size: 16px;
-  line-height: 1.5;
+.brand-mark {
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1;
 }
 
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: #111;
-  margin-top: 40px;
-}
-
-.grid > div {
-  background: #f4f1ea;
-  padding: 28px;
-}
-
-.grid h3 {
-  margin: 0 0 18px;
-  font-size: 18px;
+.brand-name {
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--nav-text);
 }
 
-.grid p {
-  font-size: 16px;
-  line-height: 1.5;
+.site-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  flex: 1;
 }
 
-.statement {
-  min-height: 80vh;
+.site-nav a {
   display: flex;
   align-items: center;
-  padding: 80px 24px;
-  background: #f4f1ea;
-  color: #111;
-}
-
-.statement h2 {
-  max-width: 1200px;
-  margin: 0;
-  font-size: clamp(54px, 10vw, 150px);
-  line-height: 0.9;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
-}
-
-.list {
-  margin: 40px 0 0;
-  padding: 0;
-  list-style: none;
-  max-width: 760px;
-  border-top: 1px solid currentColor;
-}
-
-.list li {
-  padding: 14px 0;
-  border-bottom: 1px solid currentColor;
-  font-size: 18px;
-}
-
-.price-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 28px 0;
-  border-top: 1px solid #111;
-}
-
-.price-box:last-of-type {
-  border-bottom: 1px solid #111;
-}
-
-.price-box h3 {
-  margin: 0 0 12px;
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.price {
-  font-size: 42px !important;
-  line-height: 1 !important;
+  justify-content: center;
+  min-height: 44px;
+  padding: 6px 10px;
+  font-size: 12px;
   letter-spacing: 0.04em;
-  margin: 0 0 20px;
-  color:#c30505
-}
-
-.rate-note {
-  font-size: 0.95rem;
-  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  opacity: 0.7;
-   color:#c30505
+  color: var(--nav-text);
+  text-align: center;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.offer-label {
-  margin: 12px 0 4px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
+.site-nav a:nth-child(3n) {
+  border-right: none;
 }
 
-.note {
-  margin-top: 36px !important;
-  font-size: 14px !important;
-  opacity: 0.7;
+.site-nav a:nth-child(n + 4) {
+  border-bottom: none;
 }
 
-.contact {
-  min-height: 90vh;
-  padding: 100px max(16px, calc(50% - 550px));
-  background: #111;
-  color: #f4f1ea;
+
+/* ==========================================================================
+   4. LIMITED & FRIENDS-ONLY SERVICE
+   ========================================================================== */
+
+.limited-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.contact h2 {
-  max-width: 1000px;
-  margin: 0;
-  font-size: clamp(48px, 9vw, 130px);
-  line-height: 0.9;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
-}
-
-.light-button {
-  color: #f4f1ea;
-}
-
-.site-footer {
-  padding: 28px 24px;
-  background: #111;
-  color: #f4f1ea;
-  display: flex;
-  justify-content: space-between;
   gap: 20px;
+}
+
+.limited-heading {
+  text-align: center;
+}
+
+.limited-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.limited-intro {
+  text-align: right;
+}
+
+.limited-list {
+  list-style: none;
+  align-self: flex-end;
+  text-align: left;
+}
+
+.limited-list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+}
+
+.limited-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+}
+
+.limited-note {
+  max-width: 900px;
+}
+
+.limited-media {
+  width: 100%;
+}
+
+.css-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background: var(--panel-bg);
+}
+
+.css-slider-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: css-slider-fade 15s infinite;
+}
+
+.css-slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.css-slider-slide:nth-child(1) { animation-delay: 0s; }
+.css-slider-slide:nth-child(2) { animation-delay: -5s; }
+.css-slider-slide:nth-child(3) { animation-delay: -10s; }
+
+@keyframes css-slider-fade {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  29% { opacity: 1; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+/* ==========================================================================
+   5. SELECTED WEBSITES
+   ========================================================================== */
+
+.selected-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.selected-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.selected-label {
   font-size: 12px;
-  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.selected-body {
+  font-size: 13px;
+}
+
+.selected-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--panel-bg);
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   6. PRICING
+   ========================================================================== */
+
+.pricing-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pricing-body {
+  max-width: 900px;
+}
+
+.pricing-label {
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.pricing-list {
+  list-style: none;
+  max-width: 900px;
+}
+
+.pricing-list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.pricing-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+}
+
+.pricing-media {
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   7. OWNERSHIP
+   ========================================================================== */
+
+.ownership-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ownership-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ownership-body {
+  max-width: 480px;
+}
+
+.ownership-label {
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.ownership-list {
+  list-style: none;
+  max-width: 480px;
+}
+
+.ownership-list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.ownership-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+}
+
+.ownership-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--panel-bg);
+  overflow: hidden;
+}
+
+.ownership-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ==========================================================================
+   8. TERMS
+   ========================================================================== */
+
+.terms-section {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+.terms-subhead {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.terms-content-col > .terms-subhead:first-child {
+  margin-top: 0;
+}
+
+.terms-body {
+  font-size: 13px;
+  margin-bottom: 8px;
+  max-width: 760px;
+}
+
+.terms-flow {
+  list-style: decimal;
+  padding-left: 18px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.terms-flow li {
+  margin-bottom: 2px;
+}
+
+
+/* ==========================================================================
+   9. FAQ
+   ========================================================================== */
+
+.faq-section {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+.faq-expand-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.faq-answer {
+  font-size: 13px;
+  max-width: 760px;
+}
+
+.faq-callout {
+  font-size: 13px;
+  color: var(--accent);
+  max-width: 760px;
+  margin-top: 8px;
+}
+
+.faq-extra {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.faq-expand-input:checked ~ .faq-list .faq-extra {
+  max-height: 600px;
+}
+
+.faq-toggle {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--nav-text);
+  cursor: pointer;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.site-footer p {
-  margin: 0;
-}
-
-@media (max-width: 800px) {
-  .site-header {
-    align-items: flex-start;
-    padding: 16px;
-  }
-
-  .site-nav {
-    gap: 10px;
-    font-size: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    max-width: 220px;
-  }
-
-  .hero {
-    padding: 110px 16px 50px;
-  }
-
-  .section,
-  .statement,
-  .contact {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .grid > div {
-    padding: 22px 0;
-    background: #f4f1ea;
-  }
-
-  .site-footer {
-    flex-direction: column;
-  }
-
-  .demo-showcase {
-  grid-template-columns: 1fr;
-  gap: 50px;
-}
-
-.demo-item figcaption {
-  margin-top: 14px;
-  font-size: 16px;
-}
-#service h2 {
-  white-space: normal;
-}
-}
-
-
-
-
-.password-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #111;
-  color: #f4f1ea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.password-screen.is-hidden {
+.faq-toggle-less {
   display: none;
 }
 
-.password-box {
-  width: min(100%, 560px);
+.faq-expand-input:checked ~ .faq-toggle .faq-toggle-more {
+  display: none;
 }
 
-.password-box h1 {
-  margin: 0 0 24px;
-  font-size: clamp(48px, 10vw, 100px);
-  line-height: 0.9;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
-}
-
-.password-box p {
-  max-width: 420px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.password-box input {
-  width: 100%;
-  margin-top: 28px;
-  padding: 16px 0;
-  border: none;
-  border-bottom: 1px solid currentColor;
-  background: transparent;
-  color: #f4f1ea;
-  font-size: 20px;
-  outline: none;
-}
-
-.password-box input::placeholder {
-  color: rgba(244, 241, 234, 0.45);
-}
-
-.password-box button {
-  margin-top: 24px;
-  padding: 14px 22px;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  background: transparent;
-  color: #f4f1ea;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.password-error {
-  margin-top: 16px !important;
-  font-size: 13px !important;
-  color: #f4f1ea;
-  opacity: 0.75;
-}
-
-.dark-button {
-  color: #111;
+.faq-expand-input:checked ~ .faq-toggle .faq-toggle-less {
+  display: inline;
 }
 
 
-/* =========================
-   Demo Showcase
-========================= */
+/* ==========================================================================
+   10. CONTACT
+   ========================================================================== */
 
-.demo-showcase {
-  margin: 70px auto;
-  max-width: 1100px;
+.contact-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
 }
 
-.demo-item {
-  margin: 0;
+.contact-name {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-top: 16px;
 }
 
-.demo-item img {
-  width: 100%;
-  display: block;
-  border: 1px solid rgba(244,241,234,.15);
+.contact-email {
+  font-size: 13px;
+  margin-top: 4px;
 }
 
-.demo-item figcaption {
-  margin-top: 18px;
-  max-width: 420px;
-  font-size: 18px;
-  line-height: 1.5;
-  opacity: .9;
+.contact-content-col {
+  font-style: italic;
+  font-size: 13px;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.demo-showcase + p {
-  margin-top: 70px;
+.contact-signature {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVE (portrait: phone & tablet)
+   ========================================================================== */
+
+@media (orientation: portrait) {
+
+  .brand {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    font-size: 22px;
+  }
+
+  .brand-name {
+    font-size: 7px;
+  }
+
+  .site-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .site-nav a {
+    font-size: 8px;
+    padding: 4px 2px;
+    min-height: 40px;
+    letter-spacing: 0.01em;
+  }
+
+  .limited-section,
+  .selected-section,
+  .pricing-section,
+  .ownership-section,
+  .terms-section,
+  .faq-section,
+  .contact-section {
+    padding: 18px 18px;
+  }
+
+  .limited-heading,
+  .selected-heading,
+  .pricing-heading,
+  .ownership-heading,
+  .terms-heading,
+  .faq-heading,
+  .contact-heading {
+    font-size: 21px;
+    text-align: right;
+  }
+
+  .limited-intro {
+    text-align: left;
+  }
+
+  .limited-list {
+    align-self: flex-start;
+  }
+
+  .selected-section,
+  .ownership-section {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-media,
+  .ownership-media {
+    aspect-ratio: 16 / 11;
+  }
+
+  .css-slider {
+    aspect-ratio: 4 / 5;
+  }
+
+  .terms-section,
+  .faq-section,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-name {
+    margin-top: 10px;
+  }
+
+  body {
+    font-size: 13px;
+  }
 }
