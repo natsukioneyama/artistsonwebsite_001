@@ -384,29 +384,35 @@ body.password-locked {
   background: var(--panel-bg);
 }
 
-.css-slider-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: css-slider-fade 15s infinite;
+.css-slider-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  gap: 16px;
+  animation: css-slider-scroll 26s linear infinite;
+  will-change: transform;
 }
 
-.css-slider-slide img {
-  width: 100%;
+.css-slider-group {
+  display: contents;
+}
+
+.css-slider-slide {
+  flex: none;
+  height: 100%;
+}
+
+.css-slider-slide img,
+.css-slider-slide video {
+  display: block;
+  width: auto;
   height: 100%;
   object-fit: contain;
 }
 
-.css-slider-slide:nth-child(1) { animation-delay: 0s; }
-.css-slider-slide:nth-child(2) { animation-delay: -5s; }
-.css-slider-slide:nth-child(3) { animation-delay: -10s; }
-
-@keyframes css-slider-fade {
-  0% { opacity: 0; }
-  4% { opacity: 1; }
-  29% { opacity: 1; }
-  33% { opacity: 0; }
-  100% { opacity: 0; }
+@keyframes css-slider-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 
