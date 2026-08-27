@@ -658,6 +658,10 @@ video {
 
 @media (max-width: 699px) {
 
+  .brand {
+    border-right: none;
+  }
+
   .site-nav {
     display: none;
   }
@@ -669,21 +673,87 @@ video {
   .mobile-nav:not([hidden]) {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid var(--line);
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100dvh;
+    background: var(--bg);
+    z-index: 100;
+    padding: 20px 18px;
+    overflow-y: auto;
   }
 
-  .mobile-nav a {
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .mobile-nav-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-brand {
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .mobile-nav-close {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-close-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .mobile-nav-close-bar:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .mobile-nav-close-bar:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .mobile-nav-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    margin: 32px 0 24px;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav-links a {
     display: flex;
     align-items: center;
-    min-height: 44px;
-    padding: 10px 18px;
-    font-size: 12px;
+    min-height: 52px;
+    font-size: 15px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--nav-text);
+    border-top: 1px solid var(--line);
   }
 
-  .mobile-nav a:not(:first-child) {
-    border-top: 1px solid var(--line);
+  .mobile-nav-links a:last-child {
+    border-bottom: 1px solid var(--line);
   }
 }
