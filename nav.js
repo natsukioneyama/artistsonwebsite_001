@@ -9,7 +9,6 @@
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     menu.hidden = !open;
-    document.body.classList.toggle('nav-open', open);
   }
 
   toggle.addEventListener('click', function () {
