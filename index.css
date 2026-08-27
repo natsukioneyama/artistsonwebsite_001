@@ -453,6 +453,26 @@ body.password-locked {
   overflow: hidden;
 }
 
+#selected-websites .selected-media {
+  aspect-ratio: auto;
+  height: auto;
+  max-height: 100svh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#selected-websites .selected-video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100svh;
+  object-fit: contain;
+  background: #000;
+}
+
 
 /* ==========================================================================
    7. PRICING
@@ -493,6 +513,25 @@ body.password-locked {
 
 .pricing-media {
   width: 100%;
+}
+
+#pricing .selected-media {
+  width: 100%;
+  aspect-ratio: auto;
+  height: auto;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pricing .selected-video {
+  display: block;
+  width: auto;
+  height: clamp(160px, 16vw, 240px);
+  max-width: 100%;
+  object-fit: contain;
+  background: #000;
 }
 
 
@@ -992,5 +1031,17 @@ body.password-locked {
   .css-slider-slide img,
   .css-slider-slide video {
     height: clamp(180px, 37vw, 260px);
+  }
+
+  #selected-websites .selected-media {
+    max-height: calc(100svh - 45px);
+  }
+
+  #selected-websites .selected-video {
+    max-height: calc(100svh - 45px);
+  }
+
+  #pricing .selected-video {
+    height: clamp(150px, 40vw, 190px);
   }
 }
