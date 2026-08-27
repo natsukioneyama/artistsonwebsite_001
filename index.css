@@ -453,14 +453,22 @@ body.password-locked {
   overflow: hidden;
 }
 
+#selected-websites {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+#selected-websites .selected-text {
+  min-width: 0;
+}
+
 #selected-websites .selected-media {
   aspect-ratio: auto;
   height: auto;
-  max-height: 100svh;
   background: #000;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  min-width: 0;
 }
 
 #selected-websites .selected-video {
@@ -468,7 +476,7 @@ body.password-locked {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100svh;
+  max-height: min(70svh, 680px);
   object-fit: contain;
   background: #000;
 }
@@ -513,25 +521,53 @@ body.password-locked {
 
 .pricing-media {
   width: 100%;
-}
-
-#pricing .selected-media {
-  width: 100%;
-  aspect-ratio: auto;
-  height: auto;
+  height: clamp(160px, 16vw, 240px);
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-#pricing .selected-video {
+.pricing-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.pricing-slider-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  background: #000;
+  animation: pricing-slider-scroll 16s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.pricing-slider-group {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.pricing-slider-item {
+  flex: 0 0 auto;
+  height: 100%;
+  margin-right: 16px;
+  background: #000;
+}
+
+.pricing-slider-item img,
+.pricing-slider-item video {
   display: block;
   width: auto;
-  height: clamp(160px, 16vw, 240px);
-  max-width: 100%;
+  height: 100%;
+  max-width: none;
   object-fit: contain;
   background: #000;
+}
+
+@keyframes pricing-slider-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 
@@ -1033,15 +1069,23 @@ body.password-locked {
     height: clamp(180px, 37vw, 260px);
   }
 
-  #selected-websites .selected-media {
-    max-height: calc(100svh - 45px);
+  #selected-websites {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 12px;
+  }
+
+  #selected-websites.selected-section {
+    padding: 18px 14px;
   }
 
   #selected-websites .selected-video {
-    max-height: calc(100svh - 45px);
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 
-  #pricing .selected-video {
+  .pricing-media {
     height: clamp(150px, 40vw, 190px);
   }
 }
