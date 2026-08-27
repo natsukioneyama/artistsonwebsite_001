@@ -512,12 +512,10 @@ video {
 .faq-toggle {
   display: inline-block;
   font-size: 13px;
-  color: #000;
+  color: var(--nav-text);
   cursor: pointer;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .faq-toggle-less {
@@ -546,18 +544,13 @@ video {
 .contact-name {
   font-size: 13px;
   letter-spacing: 0.05em;
-  color: #000;
+  color: var(--ink);
   margin-top: 16px;
 }
 
 .contact-email {
   font-size: 13px;
   margin-top: 4px;
-  color: #000;
-}
-
-.contact-email a {
-  color: #000;
 }
 
 .contact-content-col {
@@ -680,8 +673,18 @@ video {
   .mobile-nav:not([hidden]) {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100dvh;
     background: var(--bg);
+    z-index: 100;
     padding: 20px 18px;
+    overflow-y: auto;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .mobile-nav-bar {
