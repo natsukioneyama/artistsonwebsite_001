@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artists on Website - Personal Branding Portfolios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>. 
+
+  <div id="password-screen" class="password-screen">
+  <div class="password-box">
+    <p class="eyebrow">Private Access</p>
+    <h1>Artists on Website</h1>
+    <p>
+      This page is shared privately with selected artists.
+    </p>
+
+    <input id="password-input" type="password" placeholder="Enter password">
+    <button id="password-button" type="button">Enter</button>
+
+    <p id="password-error" class="password-error"></p>
+  </div>
+</div>
+
+<header class="site-header">
+  <a class="logo" href="#top">ARTISTS ON WEBSITE</a>
+
+  <nav class="site-nav">
+    <a href="#why">Why</a>
+    <a href="#service">Service</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <p class="eyebrow">Personal Branding Portfolios for Beauty Artists</p>
+
+    <h1>
+      Can people understand
+      who you are
+      in five seconds?
+    </h1>
+
+    <p class="hero-text">
+      Build an artist portfolio that presents your work,
+      your identity and your next professional step
+      beyond Instagram.
+    </p>
+
+    <a class="button" href="#contact">Start your portfolio</a>
+  </section>
+
+
+
+  <section id="why" class="section light">
+  <p class="number">01</p>
+  <h2>YOUR PORTFOLIO IS ABOUT WHERE YOU WANT TO GO NEXT.</h2>
+
+  <p>Maybe you want better jobs.</p>
+
+  <p>
+  Maybe you want better jobs. Maybe you want to work with bigger brands,
+  move into commercial work, or be represented by an agency.
+</p>
+
+<p>
+  Maybe you simply want to be seen as the professional you already are.
+  Instagram shows what you are doing today. Your portfolio shows where
+  you want to go next.
+</p>
+
+<p>
+  You don't need hundreds of images or a complicated website. You need
+  the right work, presented in the right way, to make people understand
+  who you are and where you are going.
+</p>
+
+<p>
+  A website is only the tool. The real goal is to build a portfolio for
+  the next stage of your career.
+</p>
+</section>
+
+
+
+<section id="service" class="section dark">
+  <p class="number">02</p>
+  <h2>MORE THAN A WEBSITE</h2>
+
+  <p>
+    Your next opportunity starts with how people understand your work.
+  </p>
+
+  <div class="demo-showcase">
+<figure class="demo-item">
+  <p class="demo-label">Curated Archive</p>
+  <img src="img/02.webp" alt="Overview portfolio example">
+  <figcaption>
+  Organize years of work into one clear portfolio.  
+</figcaption>
+</figure>
+
+<figure class="demo-item">
+  <p class="demo-label">Artist Identity</p>
+  <img src="img/01.webp" alt="Artist info page example">
+  <figcaption>
+   Introduce yourself before anyone asks.
+  </figcaption>
+</figure>
+
+<figure class="demo-item">
+  <p class="demo-label">Professional Presence</p>
+  <img src="img/03.webp" alt="Contact page example">
+  <figcaption>
+   Create one destination for your professional world.
+  </figcaption>
+</figure>
+
+  </div>
+
+  <p>
+  You can build a website yourself. But building a portfolio is not only
+  about putting images online.
+</p>
+
+<p>
+  It's about deciding what to show, what to leave out, and how your work
+  should be understood. We build portfolios around the artist you are
+  today — and the career you want tomorrow.
+</p>
+
+</section>
+
+  <section id="pricing" class="section light">
+    <p class="number">03</p>
+    <h2>BUILT FOR WHAT COMES NEXT.</h2>
+
+  <div class="price-box">
+     <h3>CUSTOMISED ARTIST PORTFOLIO</h3>
+
+     <p class="price">CURRENTLY FROM €1,200</p>
+ 
+    <p> A professionally built portfolio designed around your work, identity and next professional step.</p>
+  </div>
+
+
+  </section>
+
+
+  
+
+<section id="contact" class="contact">
+  <p class="eyebrow">Ready for your next step?</p>
+
+  <h2>
+    Let’s build a portfolio
+    people can understand
+    in five seconds.
+  </h2>
+
+  <div class="contact-actions">
+    <a class="button light-button" href="mailto:artistsonwebsite@icloud.com">
+      artistsonwebsite@icloud.com
+    </a>
+
+    <a class="button light-button" href="introduction.html">
+      Read full details
+    </a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Artists on Website</p>
+  <p>Personal Branding Portfolios for Beauty Artists</p>
+</footer>
+
+
+
+
+<script>
+  const passwordScreen = document.getElementById("password-screen");
+  const passwordInput = document.getElementById("password-input");
+  const passwordButton = document.getElementById("password-button");
+  const passwordError = document.getElementById("password-error");
+
+  const correctPassword = "5436";
+
+  function checkPassword() {
+    if (passwordInput.value === correctPassword) {
+      passwordScreen.classList.add("is-hidden");
+      sessionStorage.setItem("aowAccess", "granted");
+    } else {
+      passwordError.textContent = "Incorrect password.";
+      passwordInput.value = "";
+    }
+  }
+
+  if (sessionStorage.getItem("aowAccess") === "granted") {
+    passwordScreen.classList.add("is-hidden");
+  }
+
+  passwordButton.addEventListener("click", checkPassword);
+
+  passwordInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      checkPassword();
+    }
+  });
+</script>
+
+</body>
+</html>
