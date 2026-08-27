@@ -111,16 +111,18 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  overflow-y: auto;
+  padding: 40px;
 }
 
 .password-screen[hidden] {
   display: none;
 }
 
-.password-box {
+.password-inner {
   width: 100%;
-  max-width: 320px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .password-eyebrow {
@@ -128,21 +130,40 @@ video {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--nav-text);
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-.password-brand {
-  font-size: 22px;
-  letter-spacing: 0.02em;
+.password-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.password-heading {
+  font-size: clamp(28px, 4vw + 12px, 58px);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--ink);
-  margin: 0 0 16px;
+}
+
+.password-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.password-body {
+  font-size: 14px;
+  color: var(--body-text);
+  max-width: 480px;
 }
 
 .password-text {
   font-size: 13px;
   color: var(--body-text);
-  margin-bottom: 24px;
+  margin-top: 8px;
 }
 
 .password-field-label {
@@ -151,12 +172,14 @@ video {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--nav-text);
+  margin-top: 12px;
   margin-bottom: 6px;
 }
 
 .password-input {
   display: block;
   width: 100%;
+  max-width: 320px;
   padding: 10px 12px;
   font-size: 14px;
   font-family: var(--font-base);
@@ -169,6 +192,7 @@ video {
 .password-button {
   display: block;
   width: 100%;
+  max-width: 320px;
   padding: 10px 12px;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -377,37 +401,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   6. WHY
-   ========================================================================== */
-
-.why-section {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  padding: 28px 40px;
-  border-bottom: 1px solid var(--line);
-}
-
-.why-heading {
-  font-size: 26px;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-}
-
-.why-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.why-body {
-  font-size: 13px;
-  max-width: 760px;
-}
-
-
-/* ==========================================================================
-   7. SELECTED WEBSITES
+   6. SELECTED WEBSITES
    ========================================================================== */
 
 .selected-section {
@@ -441,7 +435,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   8. PRICING
+   7. PRICING
    ========================================================================== */
 
 .pricing-section {
@@ -483,7 +477,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   9. OWNERSHIP
+   8. OWNERSHIP
    ========================================================================== */
 
 .ownership-section {
@@ -541,7 +535,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   10. TERMS
+   9. TERMS
    ========================================================================== */
 
 .terms-section {
@@ -581,7 +575,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   11. FAQ
+   10. FAQ
    ========================================================================== */
 
 .faq-section {
@@ -658,7 +652,7 @@ body.password-locked {
 
 
 /* ==========================================================================
-   12. CONTACT
+   11. CONTACT
    ========================================================================== */
 
 .contact-section {
@@ -700,10 +694,24 @@ body.password-locked {
 
 
 /* ==========================================================================
-   13. RESPONSIVE (portrait: phone & tablet)
+   12. RESPONSIVE (portrait: phone & tablet)
    ========================================================================== */
 
 @media (orientation: portrait) {
+
+  .password-screen {
+    padding: 24px 20px;
+  }
+
+  .password-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .password-input,
+  .password-button {
+    max-width: none;
+  }
 
   .brand {
     padding: 8px 10px;
@@ -739,11 +747,6 @@ body.password-locked {
     padding: 18px 18px;
   }
 
-  .why-section {
-    grid-template-columns: 1fr;
-    padding: 18px 18px;
-  }
-
   .limited-heading,
   .selected-heading,
   .pricing-heading,
@@ -751,11 +754,6 @@ body.password-locked {
   .terms-heading,
   .faq-heading,
   .contact-heading {
-    font-size: 21px;
-    text-align: left;
-  }
-
-  .why-heading {
     font-size: 21px;
     text-align: left;
   }
@@ -798,6 +796,20 @@ body.password-locked {
 }
 
 @media (max-width: 699px) {
+
+  .password-screen {
+    padding: 20px;
+  }
+
+  .password-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .password-input,
+  .password-button {
+    max-width: none;
+  }
 
   .site-header {
     position: sticky;
