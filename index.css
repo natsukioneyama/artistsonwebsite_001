@@ -665,10 +665,6 @@ video {
 
 @media (max-width: 699px) {
 
-  .site-header {
-    position: static;
-  }
-
   .brand {
     border-right: none;
   }
@@ -684,7 +680,7 @@ video {
   .mobile-nav:not([hidden]) {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     inset: 0;
     width: 100%;
     min-height: 100dvh;
@@ -692,6 +688,10 @@ video {
     z-index: 100;
     padding: 20px 18px;
     overflow-y: auto;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .mobile-nav-bar {
