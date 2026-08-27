@@ -379,7 +379,7 @@ body.password-locked {
 .css-slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 7;
+  height: clamp(220px, 20vw, 380px);
   overflow: hidden;
   background: #000;
 }
@@ -409,7 +409,7 @@ body.password-locked {
 .css-slider-slide video {
   display: block;
   width: auto;
-  height: 100%;
+  height: clamp(220px, 20vw, 380px);
   background: #000;
   object-fit: contain;
 }
@@ -822,10 +822,6 @@ body.password-locked {
     aspect-ratio: 16 / 11;
   }
 
-  .css-slider {
-    aspect-ratio: 4 / 5;
-  }
-
   .terms-section,
   .faq-section,
   .contact-section {
@@ -987,5 +983,14 @@ body.password-locked {
 
   .mobile-nav-links a:last-child {
     border-bottom: 1px solid var(--line);
+  }
+
+  .css-slider {
+    height: clamp(180px, 37vw, 260px);
+  }
+
+  .css-slider-slide img,
+  .css-slider-slide video {
+    height: clamp(180px, 37vw, 260px);
   }
 }
