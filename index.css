@@ -492,6 +492,12 @@ body.password-locked {
   gap: 20px;
 }
 
+.pricing-rate {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
 .pricing-body {
   max-width: 900px;
 }
@@ -877,6 +883,10 @@ body.password-locked {
   .contact-heading {
     font-size: 21px;
     text-align: left;
+  }
+
+  .pricing-rate {
+    font-size: 15px;
   }
 
   .limited-intro {
